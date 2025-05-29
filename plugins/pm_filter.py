@@ -321,8 +321,8 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
         search = search.replace(' ', '_')
     except:
         pass
-    baal = lang in search
-    if baal:
+    
+    if lang in search:
         search = search.replace(lang, "")
     else:
         search = search
@@ -488,8 +488,8 @@ async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
         search = search.replace(' ', '_')
     except:
         pass
-    baal = lang in search
-    if baal:
+    
+    if lang in search:
         search = search.replace(lang, "")
     else:
         search = search
@@ -657,8 +657,8 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         search = search.replace(' ', '_')
     except:
         pass
-    baal = lang in search
-    if baal:
+    
+    if lang in search:
         search = search.replace(lang, "")
     else:
         search = search
@@ -991,8 +991,8 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
         search = search.replace(' ', '_')
     except:
         pass
-    baal = qual in search
-    if baal:
+    
+    if qual in search:
         search = search.replace(qual, "")
     else:
         search = search
