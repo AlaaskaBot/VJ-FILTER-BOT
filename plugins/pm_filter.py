@@ -2807,6 +2807,7 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
             if mv_rqst.startswith(techvj[0]):
                 await auto_filter(client, techvj, msg, reply_msg, vj_search_new)
                 break
+        return 
         reqst_gle = mv_rqst.replace(" ", "+")
         button = [[
             InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
