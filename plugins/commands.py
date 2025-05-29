@@ -100,6 +100,17 @@ async def start(client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return
+
+    if len(message.command) == 2 and message.command[1].startswith('getfile'):
+        searches = message.command[1].split("-", 1)[1] 
+        search = searches.replace('-',' ')
+        message.text = search 
+        content = search 
+        if PM_SEARCH == True:
+            ai_search = True
+            reply_msg = await client.send_message(message.from_user.id, f"<b><i>Searching For {content} 🔍</i></b>", reply_to_message_id=message.id)
+            await auto_filter(client, content, message, reply_msg, ai_search)
+            return 
     
     if AUTH_CHANNEL and not await is_subscribed(client, message):
         try:
@@ -179,17 +190,6 @@ async def start(client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return
-
-    if len(message.command) == 2 and message.command[1].startswith('getfile'):
-        searches = message.command[1].split("-", 1)[1] 
-        search = searches.replace('-',' ')
-        message.text = search 
-        content = search 
-        if PM_SEARCH == True:
-            ai_search = True
-            reply_msg = await client.send_message(message.from_user.id, f"<b><i>Searching For {content} 🔍</i></b>", reply_to_message_id=message.id)
-            await auto_filter(client, content, message, reply_msg, ai_search)
-            return 
         
     data = message.command[1]
     if data.split("-", 1)[0] == "VJ":
