@@ -1015,7 +1015,7 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
     files, offset, total_results = await get_search_results(chat_id, search, offset=0, filter=True)
     files = [file for file in files if re.search(qual, file["file_name"], re.IGNORECASE)]
     
-    seas2 = "240p" if qual == "240P" else "360p" if qual == "360P" else "480p" if qual == "480P" else "720p" if qual == "720P" else "1080p" if seas == "1080P" else "2160p" if seas == "2160P"
+    seas2 = "240p" if qual == "240P" else "360p" if qual == "360P" else "480p" if qual == "480P" else "720p" if qual == "720P" else "1080p" if seas == "1080P" else "2160p" if seas == "2160P" else ""
     search2 = f"{search} {seas2}"
     BUTTONS2[key] = search2
     files2, _, _ = await get_search_results(chat_id, search2, max_results=10)
